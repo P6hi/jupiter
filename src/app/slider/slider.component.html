@@ -1,0 +1,7 @@
+<div class="category" *ngFor="let category of categories">
+    <h4>{{ category.header }}</h4>
+    <div class="programme" *ngFor="let programme of category.data">
+        <p>{{ programme.heading }}</p>
+        <img src={{programme.verticalPhotos[0].photoUrlOriginal}} alt={{programme.verticalPhotos[0].captionEt}} style="height: 15rem;">
+    </div>
+</div>
