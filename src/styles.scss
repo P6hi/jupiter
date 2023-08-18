@@ -1,1 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
+:root {
+    --slider-index: 0;
+}
+
+*, *::after, *::before {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #203443;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    margin: 0;
+}

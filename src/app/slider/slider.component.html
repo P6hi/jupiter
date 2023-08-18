@@ -1,7 +1,16 @@
-<div class="category" *ngFor="let category of categories">
-    <h4>{{ category.header }}</h4>
-    <div class="programme" *ngFor="let programme of category.data">
-        <p>{{ programme.heading }}</p>
-        <img src={{programme.verticalPhotos[0].photoUrlOriginal}} alt={{programme.verticalPhotos[0].captionEt}} style="height: 15rem;">
+<ng-container *ngFor="let category of categories; let categoryIndex = index">
+    <div class="categories" *ngIf="category.data.length > 1 && category.header != ''">
+      <h1>{{ category.header }}</h1>
+  
+      <div class="container">
+        <button class="handle left-handle" (click)="moveLeft(categoryIndex)">&#8249;</button>
+        <div class="slider" [id]="'slider-' + categoryIndex">
+          <ng-container *ngFor="let programme of category.data">
+            <img src="{{programme.verticalPhotos[0].photoUrlOriginal}}" alt="{{programme.verticalPhotos[0].captionEt}}">
+          </ng-container>
+        </div>
+        <button class="handle right-handle" (click)="moveRight(categoryIndex)">&#8250;</button>
+      </div>
+  
     </div>
-</div>
+  </ng-container>
