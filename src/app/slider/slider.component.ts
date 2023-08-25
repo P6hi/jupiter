@@ -32,15 +32,18 @@ export class SliderComponent {
 
 moveRight(categoryIndex: number): void {
   const category = this.categories[categoryIndex];
-  if (this.incrementValues[categoryIndex] < category.data.length - 1) {
+  const totalSlides: number = Math.ceil(category.data.length / 6); // Replace with logic that calculates the width of images instead of "6"
+  if (this.incrementValues[categoryIndex] < totalSlides) {
     this.incrementValues[categoryIndex]++;
     this.updateSliderTransform(categoryIndex);
+    console.log(totalSlides)
+    console.log(this.incrementValues[categoryIndex])
   }
 }
 
 
   private updateSliderTransform(categoryIndex: number): void {
-    const transformValue = `translateX(${ -100 * this.incrementValues[categoryIndex] }%)`;
+    const transformValue = `translateX(${ -90 * this.incrementValues[categoryIndex] }%)`;
     const sliderElement = document.getElementById(`slider-${categoryIndex}`);
     this.renderer.setStyle(sliderElement, 'transform', transformValue);
   }
